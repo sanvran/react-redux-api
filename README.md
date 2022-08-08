@@ -68,3 +68,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+>-------------------------------------------------------------------------------------------<
+-Sementic UI
+
+----------SETUP FOR READUX ----------
+# Create folder structure
+   1. create a folder: redux (All file related to redux)
+      2. create a folder: actions (Contains all the actions)
+      3. create a folder: constants (Contains all the constants file)
+      4. create a folder: reducers (Contains all funtions)
+   5. create a file: store.js (Store state)
+
+
+
+# Reducers 
+* It can be multiple reducers, so we need to combines the reducer in index.js inside reducer folder.
+      1. import the combineReducers from redux.
+      2. import productReducer (which is created before in reducer folder)
+      3. We create const of all reducers eg. 
+         const reducers = combineReducers({}) -- It takes an object.
+# Create a store
+   * createStore() --It takes couple of Argument
+      First argument is: reducers (which all reducer is combineReducers).
+      Second argument is: {state}
+# Connect to Provider in index.js 
+   First: Import Provider from react-redux and provider then wrap app inside with <Provider></Provider>
+   Second: assign intialState in product-reducer inside redux folder.
+      eg: productReducer = (state = initialState, {type, payload}).
+All store setup done.
+
+* useSelector: For get access of the redux store. (To call in product listing page)
+It import from react-redux
+   -- It takes argument of: State and return a state
+
+# Dispatch the action once we get the data from API
+
+
+
