@@ -103,6 +103,9 @@ It import from react-redux
    -- It takes argument of: State and return a state
 
 # Dispatch the action once we get the data from API
+   useDispatch: Redux hook
+   const dispatch = useDispatch();
+   dispatch: dispatch take an action
 
 
 

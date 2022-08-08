@@ -1,34 +1,40 @@
 import React from "react"
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 
-
+// main component
 const ProductComponent = () => {
 
   const products = useSelector((state) => state.allProducts.products);
-  const {id, title} = products[0]
+  //const { id, title, image, price, category } = products;
   // console.log("Product component ====>", products)
   return (
-    <div className="container">
-      <div className="four wide column" >
-        <Link to="#">
-          <div className="ui link cards">
-            <div className="card">
-              <div className="image">
-                {/* <img src="" alt='title' /> */}
-              </div>
-              <div className="content">
-                <div className="header">{title}</div>
-                <div className="meta price">$ 10000</div>
-                <div className="meta">IT</div>
-              </div>
+    <>
+      {
+        products.map((elem) => {
+          return (
+            <div className="four wide column" key={elem.id} >
+              <Link to={`/product-detail/${elem.id}`}>
+                <div className="ui link cards">
+                  <div className="card">
+                    <div className="image">
+                      <img src={elem.image} alt={elem.title} />
+                    </div>
+                    <div className="content">
+                      <div className="header">{elem.title }</div>
+                      <div className="meta price">$ {elem.price }</div>
+                      <div className="meta">{elem.category}</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </div>
-        </Link>
-      </div>
-    </div>
-  )
+          )
+        })
+      }
+    </>
 
+  )
 };
 
 export default ProductComponent;
